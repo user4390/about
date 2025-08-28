@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Single‑File SEO Website | Demo Brand</title>
+  <meta name="description" content="A fully SEO‑friendly, responsive, single‑file website template with clean HTML, inline CSS/JS, Open Graph, Twitter Cards, and Schema.org." />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://www.example.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Demo Brand" />
+  <meta property="og:title" content="Single‑File SEO Website" />
+  <meta property="og:description" content="A compact, fast, and SEO‑ready single‑file template." />
+  <meta property="og:url" content="https://www.example.com/" />
+  <meta property="og:image" content="https://www.example.com/og-image.jpg" />
+  <meta property="og:image:alt" content="Demo Brand preview" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Single‑File SEO Website" />
+  <meta name="twitter:description" content="A compact, fast, and SEO‑ready single‑file template." />
+  <meta name="twitter:image" content="https://www.example.com/og-image.jpg" />
+
+  <!-- Favicon (embedded) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%2300a67d'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-size='54' fill='white' font-family='Arial'%3ED%3C/text%3E%3C/svg%3E" />
+
+  <style>
+    :root{ --bg:#0b0f14; --card:#111823; --muted:#8aa0b5; --text:#e7edf3; --brand:#00a67d; --brand-2:#4ad6b0; --ring:rgba(74,214,176,.35); }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%;display:block}
+
+    .container{width:min(1200px,92vw);margin-inline:auto}
+    header{position:sticky;top:0;backdrop-filter:saturate(130%) blur(8px);background:linear-gradient(180deg,rgba(11,15,20,.8),rgba(11,15,20,.55));border-bottom:1px solid rgba(255,255,255,.06);z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:700}
+    .brand .logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;color:#003b2f}
+    .nav a{margin-inline:10px;color:var(--text)}
+    .cta{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#06261f;padding:10px 16px;border-radius:12px;font-weight:700;border:none;cursor:pointer}
+
+    .hero{padding:70px 0 30px}
+    .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:24px}
+    .badge{display:inline-flex;gap:8px;align-items:center;background:#09131b;border:1px solid rgba(255,255,255,.08);padding:6px 10px;border-radius:999px;color:var(--muted)}
+    .title{font-size:clamp(28px,3.2vw,46px);line-height:1.2;margin:14px 0 10px}
+    .lead{color:#b9c7d5;max-width:62ch}
+    .hero-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:18px}
+
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:18px}
+    .card h3{margin:.25rem 0 .5rem}
+    .muted{color:var(--muted)}
+
+    .section{padding:50px 0}
+
+    .breadcrumbs{font-size:14px;color:var(--muted);margin:10px 0 0}
+    .breadcrumbs a{color:var(--muted)}
+
+    .faq details{background:#0f1620;border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:14px}
+    .faq details+details{margin-top:10px}
+    details summary{cursor:pointer;font-weight:600}
+
+    .blog{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    article{background:#0f1620;border:1px solid rgba(255,255,255,.06);border-radius:18px;overflow:hidden}
+    article .p{padding:14px}
+
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.12);padding:10px 14px;border-radius:12px;color:var(--text)}
+    .btn:hover{border-color:var(--brand)}
+
+    footer{border-top:1px solid rgba(255,255,255,.06);padding:30px 0 60px;color:#97a9bb}
+
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .blog{grid-template-columns:1fr}
+    }
+
+    :focus{outline:3px solid var(--ring);outline-offset:2px}
+  </style>
+
+  <!-- JSON-LD: Organization + WebSite with SearchAction -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Demo Brand",
+    "url":"https://www.example.com/",
+    "logo":"https://www.example.com/logo.png",
+    "sameAs":["https://facebook.com/example","https://x.com/example"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "url":"https://www.example.com/",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://www.example.com/?q={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header role="banner">
+    <div class="container nav" aria-label="Top Navigation">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">DB</span>
+        <a href="#home" aria-label="Home">Demo Brand</a>
+      </div>
+      <nav aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#features">Features</a>
+        <a href="#blog">Blog</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <button class="cta" id="contactBtn" type="button">Free Consultation</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home" class="container" role="main">
+    <p class="breadcrumbs" aria-label="Breadcrumbs">
+      <span itemscope itemtype="https://schema.org/BreadcrumbList">
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a itemprop="item" href="https://www.example.com/"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </span>
+        › <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a itemprop="item" href="#home"><span itemprop="name">SEO Demo</span></a>
+          <meta itemprop="position" content="2" />
+        </span>
+      </span>
+    </p>
+
+    <section class="hero" aria-labelledby="h1">
+      <div class="hero-grid">
+        <div>
+          <span class="badge" aria-label="SEO Highlights">
+            ⚡ Fast load · 🧭 Clear structure · 🧠 Schema ready
+          </span>
+          <h1 id="h1" class="title">Build a Perfect SEO Website in One File</h1>
+          <p class="lead">This template helps you ship a fast, responsive, and search‑friendly site — meta tags, Open Graph, Twitter Cards, and JSON‑LD are ready to go.</p>
+          <div class="cta-row" style="margin-top:12px">
+            <a class="btn" href="#services" aria-label="See Services">🚀 View Services</a>
+            <a class="btn" href="#blog" aria-label="Read Blog">📝 Read Blog</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="Key Metrics">
+          <h2 style="margin:6px 0 10px">Why SEO‑friendly?</h2>
+          <ul class="muted" style="margin:0 0 6px 18px">
+            <li>Semantic HTML and accessible navigation</li>
+            <li>Lightweight CSS/JS, no external dependencies</li>
+            <li>Correct meta and structured data</li>
+            <li>Internal linking and breadcrumbs</li>
+            <li>Lazy‑loaded images</li>
+          </ul>
+          <form id="siteSearch" role="search" aria-label="On-page search">
+            <label for="q" class="muted">Search this page</label>
+            <div style="display:flex;gap:8px;margin-top:6px">
+              <input id="q" name="q" inputmode="search" placeholder="Type to search…" aria-label="Search query" style="flex:1;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0b121a;color:var(--text)" />
+              <button class="cta" type="submit">Search</button>
+            </div>
+            <p id="searchResultCount" class="muted" style="margin:8px 0 0"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section" aria-labelledby="services-title">
+      <h2 id="services-title">Our Services</h2>
+      <p class="muted">Three core services for your brand.</p>
+      <div class="grid-3" role="list">
+        <div class="card" role="listitem">
+          <h3>Technical SEO</h3>
+          <p class="muted">Site audits, performance, crawlability, and indexation fixes.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h3>On‑Page Optimization</h3>
+          <p class="muted">Content structure, internal links, schema, and UX improvements.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h3>Content Strategy</h3>
+          <p class="muted">Keyword research, briefs, and editorial roadmap that converts.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section" aria-labelledby="features-title">
+      <h2 id="features-title">Features</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Single File</h3>
+          <p class="muted">Everything — HTML, CSS, and JS — lives in one portable file.</p>
+        </div>
+        <div class="card">
+          <h3>Accessible</h3>
+          <p class="muted">Landmarks, labels, focus states, and keyboard‑friendly controls.</p>
+        </div>
+        <div class="card">
+          <h3>Fast</h3>
+          <p class="muted">No external requests; minimal render‑blocking; lazy‑loaded media.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="section" aria-labelledby="blog-title">
+      <h2 id="blog-title">Latest Posts</h2>
+      <div class="blog">
+        <article aria-labelledby="post-1">
+          <img loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='100%25' height='100%25' fill='%23111823'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%238aa0b5' font-family='Arial' font-size='28'%3EPlaceholder Image%3C/text%3E%3C/svg%3E" alt="Post cover" />
+          <div class="p">
+            <h3 id="post-1">How to Structure SEO Titles in 2025</h3>
+            <p class="muted">Actionable patterns to earn clicks without clickbait.</p>
+            <a class="btn" href="#">Read more</a>
+          </div>
+        </article>
+        <article aria-labelledby="post-2">
+          <img loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='100%25' height='100%25' fill='%23111823'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%238aa0b5' font-family='Arial' font-size='28'%3EPlaceholder Image%3C/text%3E%3C/svg%3E" alt="Post cover" />
+          <div class="p">
+            <h3 id="post-2">Core Web Vitals: A Practical Checklist</h3>
+            <p class="muted">Quick wins to improve LCP, CLS, and INP on a tight budget.</p>
+            <a class="btn" href="#">Read more</a>
+          </div>
+        </article>
+        <article aria-labelledby="post-3">
+          <img loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='100%25' height='100%25' fill='%23111823'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%238aa0b5' font-family='Arial' font-size='28'%3EPlaceholder Image%3C/text%3E%3C/svg%3E" alt="Post cover" />
+          <div class="p">
+            <h3 id="post-3">Schema Markup That Actually Helps</h3>
+            <p class="muted">Which types to add and how to validate them quickly.</p>
+            <a class="btn" href="#">Read more</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="faq" class="section faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">FAQ</h2>
+      <details>
+        <summary>Is this template really a single file?</summary>
+        <p class="muted">Yes. Everything is embedded here. You can deploy it as is.</p>
+      </details>
+      <details>
+        <summary>How can I customize branding?</summary>
+        <p class="muted">Update the logo text, colors in <code>:root</code>, and meta tags above.</p>
+      </details>
+      <details>
+        <summary>Does it support analytics?</summary>
+        <p class="muted">You can paste your analytics script right before the closing <code>&lt;/body&gt;</code>.</p>
+      </details>
+    </section>
+
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <form id="contactForm" aria-label="Contact form">
+        <div class="grid-3" style="grid-template-columns:1fr 1fr; gap:12px">
+          <input required aria-label="Name" name="name" placeholder="Your name" style="padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0b121a;color:var(--text)" />
+          <input required type="email" aria-label="Email" name="email" placeholder="Your email" style="padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0b121a;color:var(--text)" />
+          <input aria-label="Company" name="company" placeholder="Company (optional)" style="padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0b121a;color:var(--text);grid-column:1/3" />
+          <textarea required aria-label="Message" name="message" placeholder="Your message" rows="5" style="padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0b121a;color:var(--text);grid-column:1/3"></textarea>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:10px;align-items:center">
+          <button class="cta" type="submit">Send Message</button>
+          <span id="contactStatus" class="muted" role="status" aria-live="polite"></span>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <p>© <span id="y"></span> Demo Brand • <a href="#">Privacy</a> • <a href="#">Terms</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple in-page search highlighting and count
+    (function(){
+      const form = document.getElementById('siteSearch');
+      const input = document.getElementById('q');
+      const counter = document.getElementById('searchResultCount');
+      const searchable = () => Array.from(document.querySelectorAll('main p, main h2, main h3, main li'));
+
+      function clearMarks(){
+        document.querySelectorAll('mark[data-hit]').forEach(m=>{
+          const t = document.createTextNode(m.textContent);
+          m.replaceWith(t);
+        });
+      }
+      function highlight(term){
+        if(!term) { clearMarks(); counter.textContent=''; return; }
+        const rx = new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+        let hits = 0;
+        searchable().forEach(node=>{
+          node.childNodes.forEach(ch=>{
+            if(ch.nodeType===3){
+              const parts = ch.textContent.split(rx);
+              const matches = ch.textContent.match(rx);
+              if(matches){
+                hits += matches.length;
+                const frag = document.createDocumentFragment();
+                parts.forEach((p,i)=>{
+                  frag.appendChild(document.createTextNode(p));
+                  if(i < parts.length-1){
+                    const mark = document.createElement('mark');
+                    mark.setAttribute('data-hit','');
+                    mark.textContent = matches[i];
+                    mark.style.background = 'rgba(74,214,176,.35)';
+                    mark.style.padding = '0 2px';
+                    mark.style.borderRadius = '3px';
+                    frag.appendChild(mark);
+                  }
+                });
+                ch.replaceWith(frag);
+              }
+            }
+          });
+        });
+        counter.textContent = hits ? `${hits} result${hits>1?'s':''} found` : 'No results';
+      }
+
+      form.addEventListener('submit', e=>{ e.preventDefault(); clearMarks(); highlight(input.value.trim()); });
+      input.addEventListener('input', ()=>{ clearMarks(); if(input.value.trim()===''){ counter.textContent=''; } });
+    })();
+
+    // Smooth scroll to contact from header CTA
+    document.getElementById('contactBtn').addEventListener('click', ()=>{
+      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+    });
+
+    // Fake contact handler (no backend)
+    (function(){
+      const f = document.getElementById('contactForm');
+      const s = document.getElementById('contactStatus');
+      f.addEventListener('submit', function(e){
+        e.preventDefault();
+        s.textContent = 'Sending…';
+        setTimeout(()=>{ s.textContent = 'Message sent (demo). Replace with your backend endpoint.'; f.reset(); }, 800);
+      });
+    })();
+
+    // Current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
